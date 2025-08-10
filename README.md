@@ -30,6 +30,50 @@ Detected anomalies are analyzed by an **LLM (Gemini / LLaMA)**, and formatted al
 
 ###  Install Dependencies
 ```bash
+
+#Update System Packages
+sudo apt update && sudo apt upgrade -y
+
+#Install Java (Required for Spark & Kafka)
+#We use OpenJDK 11 for maximum compatibility.
+sudo apt install openjdk-11-jdk -y
+
+#Install Python
+#Use Python 3.10.x (Python 3.11+ can cause some PySpark dependency issues).
+sudo apt install python3.10 python3.10-venv python3-pip -y
+
+#Install Common Utilities
+sudo apt install curl wget unzip git -y
+
+#Install Apache Kafka & Zookeeper
+#We use Kafka 3.7.x (without Confluent).
+wget https://downloads.apache.org/kafka/3.7.0/kafka_2.13-3.7.0.tgz
+tar -xvzf kafka_2.13-3.7.0.tgz
+mv kafka_2.13-3.7.0 kafka
+
+#Install Apache Spark
+#We use Spark 3.5.1 with Delta Lake jars.
+wget https://downloads.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz
+tar -xvzf spark-3.5.1-bin-hadoop3.tgz
+mv spark-3.5.1-bin-hadoop3 spark
+
+# Add Delta Lake & Azure Integration JARs
+#Required JARs (place them in spark/jars/):
+
+delta-core_2.12-3.0.0.jar
+
+delta-storage-3.0.0.jar
+
+spark-sql-kafka-0-10_2.12-3.5.1.jar
+
+kafka-clients-3.5.1.jar
+
+hadoop-azure-3.3.2.jar
+
+hadoop-azure-datalake-3.3.2.jar
+
+azure-storage-8.6.6.jar
+
 pip install -r requirements.txt
 
 # run every file within the virtual env to avoid version errors
