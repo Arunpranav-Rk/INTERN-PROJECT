@@ -32,9 +32,28 @@ Detected anomalies are analyzed by an **LLM (Gemini / LLaMA)**, and formatted al
 ```bash
 pip install -r requirements.txt
 
+# run every file within the virtual env to avoid version errors
+source venv/bin/activate
 
+#Start kafka and zookeeper
 zookeeper-server-start.sh config/zookeeper.properties
 kafka-server-start.sh config/server.properties
+
+#Start Kafka producer
+python producer.py
+
+#Start spark streaming
+python consumer.py
+
+#Run Metrics Collector
+python metrics.py
+
+#Start ML Anomaly Detector
+python ml.py
+
+#Enable LLM & Email Alerts
+python llm.py
+
 
 
 
