@@ -98,6 +98,19 @@ python ml.py
 #Enable LLM & Email Alerts
 python llm.py
 
+```
+## 📂 Folder Structure
+
+.
+├── kafka_producer.py # Sends sample sensor data to Kafka topic
+├── spark_streaming.py # Reads from Kafka, writes to Delta
+├── metrics_collector.py # Calculates metrics every 1 min
+├── ml.py # Runs Isolation Forest anomaly detection
+├── llm.py # Analyzes anomalies and sends emails
+├── anomaly.py # Helper functions for anomaly logging
+├── requirements.txt # Python dependencies
+├── README.md # Project documentation
+└── email_style.css # Styling for email alerts
 
 
 
