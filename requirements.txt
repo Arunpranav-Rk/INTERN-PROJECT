@@ -1,1 +1,32 @@
-java
+# Core Spark + Delta
+pyspark==3.5.1
+delta-spark==3.0.0
+
+# Kafka client
+kafka-python==2.0.2
+confluent-kafka==2.4.0
+
+# Azure Storage & Hadoop integration
+azure-storage-blob==12.19.1
+azure-datalake-store==0.0.53
+
+# Data processing
+pandas==2.2.2
+numpy==1.26.4
+
+# Machine Learning
+scikit-learn==1.5.0
+
+# Environment Variables
+python-dotenv==1.0.1
+
+# HTTP requests for LLM API
+requests==2.32.3
+google-generativeai==0.4.0
+
+# Email
+email-validator==2.1.1
+
+# Misc
+lxml==5.2.2
+
